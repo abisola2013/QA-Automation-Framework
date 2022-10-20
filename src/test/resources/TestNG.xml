@@ -6,7 +6,11 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="LoginTests"/>
+<<<<<<< Updated upstream
             <class name="BaseTest"/>
+=======
+            <class name="hmw15"/>
+>>>>>>> Stashed changes
         </classes>
     </test>
 </suite>
