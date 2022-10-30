@@ -8,16 +8,16 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-
+String url= "https://bbb.testpro.io/";
     @Test(priority = 0)
     public void LoginEmptyEmailPasswordTest () {
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
     @Test(priority = 1)
-    public void LoginValidEmailValidPasswordTest () {
+    public void LoginValidEmailValidPasswordTest () throws InterruptedException {
 
-        provideEmail("dem@class.com");
+        provideEmail();
         providePassword();
         clickSubmitBtn();
 
@@ -28,7 +28,7 @@ public class LoginTests extends BaseTest {
 
     @Test(priority = 2)
     public void LoginInvalidEmailPasswordTest () throws InterruptedException {
-        provideEmail("dem@class.com");
+        provideEmail();
         providePassword();
         clickSubmitBtn();
 
@@ -49,7 +49,7 @@ public class LoginTests extends BaseTest {
 
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.click();
-        emailField.sendKeys("demo@class.com");
+        emailField.sendKeys("adenik@yahoo.com");
 
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         passwordField.click();

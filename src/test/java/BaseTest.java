@@ -40,10 +40,10 @@ public class BaseTest {
         submitButton.click();
     }
 
-    public void provideEmail(String email) {
+    public void provideEmail() {
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.click();
-        emailField.sendKeys(email);
+        emailField.sendKeys();
     }
 
     public void providePassword() {

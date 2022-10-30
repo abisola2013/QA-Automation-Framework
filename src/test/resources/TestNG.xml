@@ -6,13 +6,16 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="Homework17">
-                <methods>
-                    <include name="addSongToPlaylist" />
-                </methods>
+<!--                <methods>-->
+<!--                    <include name="addSongToPlaylist" />-->
+<!--                </methods>-->
+                <class name="BaseTest">
+                <class name="LoginTests">
+                <class name="ChangeUserNameProfile">
+                <class name="PlaylistTests">
             </class>
         </classes>
     </test>
 </suite>
 
-<!--<class name="RegistrationTests"/>-->
-<!--<class name="ChangeUsernameTests"/>-->
+
