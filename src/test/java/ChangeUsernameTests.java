@@ -18,7 +18,7 @@ public class ChangeUsernameTests extends  BaseTest {
 
         //login
         provideEmail("demo@class.com");
-        providePassword();
+        providePassword("");
         clickSubmitBtn();
 
         //profile page

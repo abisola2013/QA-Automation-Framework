@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,9 +11,14 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
 String url= "https://bbb.testpro.io/";
     @Test(priority = 0)
+=======
+
+    @Test(enabled = false, priority = 0)
+
     public void LoginEmptyEmailPasswordTest () {
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
+
 
     @Test(priority = 1)
     public void LoginValidEmailValidPasswordTest () throws InterruptedException {
@@ -21,15 +27,34 @@ String url= "https://bbb.testpro.io/";
         providePassword();
         clickSubmitBtn();
 
-        WebElement avatarIcon = driver.findElement(By.xpath("//img[contains(@alt,'Avatar of')]"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
+    @Test (enabled=true, priority = 1)// (priority = 1, dataProvider = "invalidCredentials", dataProviderClass = BaseTest.class)
+    public void LoginValidEmailValidPasswordTest () {
 
+        login();
+        // driver.findelement(how to find the element)
+        // |
+        // var = how to find element
+        // driver.findelement(var)
+
+        By avatarIconLocator = By.xpath("//img[contains(@alt,'Avatar of')]");
+        By playlistLocator = By.cssSelector("#playlists h1");
+
+        wait.until(ExpectedConditions.elementToBeClickable(avatarIconLocator));
+        WebElement avatarIcon = driver.findElement(avatarIconLocator);
+        Assert.assertTrue(avatarIcon.isDisplayed());
+        wait.until(ExpectedConditions.elementToBeClickable(playlistLocator));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(playlistLocator), "PLAYLISTS"));
     }
 
-    @Test(priority = 2)
+    @Test(enabled = false, priority = 2)
     public void LoginInvalidEmailPasswordTest () throws InterruptedException {
+
         provideEmail();
-        providePassword();
+        providePassword()
+        
+        provideEmail("dem@class.com");
+        providePassword("");
+
         clickSubmitBtn();
 
         // Vd

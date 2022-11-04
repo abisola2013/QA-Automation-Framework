@@ -11,7 +11,7 @@ public class Homework17 extends BaseTest {
     public void addSongToPlaylist(){
         //login
         provideEmail("demo@class.com");
-        providePassword();
+        providePassword("");
         clickSubmitBtn();
         //add a song to the playlist
         clickViewAllBtn();

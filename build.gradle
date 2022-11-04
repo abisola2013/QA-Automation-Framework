@@ -19,3 +19,9 @@ test {
         suites "src/test/resources/TestNG.xml"
     }
 }
+
+task testHW18(type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Homework18.xml"
+    }
+}

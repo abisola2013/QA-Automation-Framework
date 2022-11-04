@@ -3,8 +3,9 @@
 
 <suite name="TestNG">
 
-    <test name="Example Test" preserve-order="false">
+    <test name="LoginTests" preserve-order="false">
         <classes>
+
             <class name="Homework17">
 <!--                <methods>-->
 <!--                    <include name="addSongToPlaylist" />-->
@@ -13,6 +14,11 @@
                 <class name="LoginTests">
                 <class name="ChangeUserNameProfile">
                 <class name="PlaylistTests">
+=======
+            <class name="LoginTests">
+                <methods>
+                    <include name="LoginValidEmailEmptyPasswordTest" />
+                </methods>
             </class>
         </classes>
     </test>
