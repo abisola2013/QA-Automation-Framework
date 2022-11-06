@@ -1,3 +1,6 @@
+import POM.pages.AllSongsPage;
+import POM.pages.HomePage;
+import POM.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,26 +15,28 @@ public class PlaySong extends BaseTest{
     @Test
     public void playSong() throws InterruptedException {
         // test case here
-        login();
-        chooseAllSongsList();
-        contextClickFirstSong();
-        choosePlay();
-        Assert.assertTrue(isSongPlaying());
+        // Class23 Example
+
+        LoginPage loginPage = new LoginPage(driver);
+        AllSongsPage songsPage = new AllSongsPage(driver);
+        //BasePage basePage = new BasePage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        //login();
+        loginPage.login();
+        //chooseAllSongsList();
+        homePage.clickOnAllSongs();
+        //contextClickFirstSong();
+        songsPage.contextClickFirstSong();
+        //choosePlay();
+        songsPage.playFromContextMenu();
+        //Assert.assertTrue(isSongPlaying());
+        Assert.assertTrue(songsPage.isSongPlaying());
     }
 
     //    helper methods
     public void chooseAllSongsList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
-    }
-
-    public void contextClickFirstSong() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
-        WebElement firstSong = driver.findElement(By.cssSelector(".all-songs tr.song-item:nth-child(1)"));
-        actions.contextClick(firstSong).perform();
-    }
-
-    public void choosePlay() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playback"))).click();
     }
 
     public boolean isSongPlaying() {
