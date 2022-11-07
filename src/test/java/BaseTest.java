@@ -26,7 +26,7 @@ public class BaseTest {
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
             System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         } else {
-            System.setProperty("webdriver.chrome.driver", "Untitled/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
 
 
