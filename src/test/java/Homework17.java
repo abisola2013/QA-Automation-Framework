@@ -10,8 +10,13 @@ public class Homework17 extends BaseTest {
     @Test
     public void addSongToPlaylist(){
         //login
-        provideEmail("demo@class.com");
+
+        provideEmail("adenik@yahoo.com");
         providePassword("");
+
+//        provideEmail("adenik@yahoo.com");
+//        providePassword("te$t$tudent");
+
         clickSubmitBtn();
         //add a song to the playlist
         clickViewAllBtn();
