@@ -14,8 +14,8 @@ public class PlaylistTests extends BaseTest {
 @Test(priority = 0)
         public void addSongToPlaylist() throws InterruptedException {
         //login
-        provideEmail();
-        providePassword();
+        provideEmail("");
+        providePassword("");
         clickSubmitBtn();
         Assert.assertEquals(driver.getCurrentUrl(),url);
         driver.get(url);

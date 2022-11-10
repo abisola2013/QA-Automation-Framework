@@ -9,10 +9,8 @@ public class PlaySongHmw18 extends MyBaseTest {
     //we now extend to our own base test named MyBaseTest
 
     @Test
-    public void playASong(){
-        //login
-//        provideEmail();
-//        providePassword("te$t$tudent"); we can remove this and just call the login method
+    public void playASong() throws InterruptedException {
+
         login();//now lets to run it
         clickSubmitBtn();
         clickAllSongs();
@@ -21,6 +19,7 @@ public class PlaySongHmw18 extends MyBaseTest {
         playANewSong();
 
     }
+
 
     private void playANewSong() {
 
@@ -52,29 +51,23 @@ public class PlaySongHmw18 extends MyBaseTest {
         WebElement clickPlay = driver.findElement(By.xpath("//*[@title='Play or resume']"));
         clickPlay.click();
         Assert.assertTrue(driver.findElement((By) clickPlay).isEnabled());
+
+        WebElement Visualizer = driver .findElement(By.xpath("//button[@data-testid='toggle-visualizer-btn']//img[@alt='Sound bars']"));
+        Assert.assertTrue(Visualizer.isDisplayed());
     }
 
-//    private void clickOnASong() {
-//        WebElement clickOnASong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
-//        clickOnASong.click();
-//    }
 
-    private void clickAllSongs() {
+
+
+
+    private void clickAllSongs() throws InterruptedException {
         // add webdriver wait
         WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
         allSongs.click();
+       Thread.sleep(2000);
 
-//        WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
-//        allSongs.click();
-//
-//        WebElement allSongPage = driver.findElement(By.xpath("//h1[normalize-space()='All Songs']"));
-//        Assert.assertTrue(driver.findElement((By) allSongPage).isDisplayed());
-//
-//        WebElement clickOnASong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
-//        clickOnASong.click();
-//
-//        WebElement clickPlay = driver.findElement(By.xpath("//*[@title=\"Play or resume\"]"));
-//        clickPlay.click();
-//        Assert.assertTrue(driver.findElement((By) clickPlay).isEnabled());
+
+
+//        The visualizer will be the assertion that the music is playing
     }
 }

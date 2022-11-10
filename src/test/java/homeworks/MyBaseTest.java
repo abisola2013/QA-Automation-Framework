@@ -13,9 +13,9 @@ import java.time.Duration;
 public class MyBaseTest {
 //this is our own base test, I created a new package (homeworks) so all your works would be
 //    in one package
-    WebDriver driver;
+public WebDriver driver;
     String url;
-    WebDriverWait wait;
+    public WebDriverWait wait;
     Actions actions;
 
 
@@ -82,13 +82,13 @@ public class MyBaseTest {
     public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         passwordField.click();
-        passwordField.sendKeys(password);
+        passwordField.sendKeys("password");
     }
 //    lets add a string as a parameter for the provide password method
 //    in this way, we could just call the method, and add our valid email/password
 
     @DataProvider(name="invalidCredentials")
-    public static Object[][] getCredentials(){
+    public Object[][] getCredentials(){
 
         return new Object[][] {
                 {"invalid@class.com", "invalidPass"},
@@ -97,7 +97,7 @@ public class MyBaseTest {
         };
     }
 
-    public void login(){
+    public void login( ){
         provideEmail("adenik@yahoo.com");
         providePassword("te$t$tudent");
         clickSubmitBtn();
