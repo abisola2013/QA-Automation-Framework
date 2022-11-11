@@ -1,3 +1,6 @@
+
+import homeworks.MyBaseTest;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,44 +9,43 @@ import org.testng.annotations.Test;
 
 import java.util.UUID;
 
-public class ChangeUserNameProfile  extends BaseTest{
-    WebDriver driver;
-    String url="https://bbb.testpro.io/";
+public class ChangeUserNameProfile  extends MyBaseTest {
 
-//  private Object enterEmail;
-//    private Object provideEmail;
+    WebDriver driver;
+    String url = "https://bbb.testpro.io/";
 
     @Test(priority = 0)
-  public void changeUserNameVerifyTheChangeTest() throws InterruptedException {
+    public void changeUserNameVerifyTheChangeTest() throws InterruptedException {
 
-            provideEmail();
-            providePassword();
-            clickSubmitBtn();
-            clickAvatarIcon();
-//            providenewName();
-//           provideCurrentPassword("te$t$tudent");
+
+        provideEmail("");
+        providePassword("");
+        clickSubmitBtn();
+        clickAvatarIcon();
 
         WebElement newName = driver.findElement(By.xpath("//*[@name='name']"));
-        String expectednewName= randomStr();
+        String expectednewName = randomStr();
         newName.sendKeys(expectednewName);
 
-        WebElement currentPassword=driver.findElement(By.xpath("//*[@name='current_password']"));
+        WebElement currentPassword = driver.findElement(By.xpath("//*[@name='current_password']"));
         currentPassword.sendKeys("te$t$tudent");
 
         WebElement save = driver.findElement(By.xpath("//*[@class=\"btn-submit\"]"));
         save.click();
 
         WebElement userNameActual = driver.findElement(By.xpath("//span[@class='name']"));
-        Assert.assertEquals(expectednewName,userNameActual);
+        Assert.assertEquals(expectednewName, userNameActual);
+    }
+
+    private void clickAvatarIcon() {
+        WebElement avatarIcon = driver.findElement(By.xpath("//*[@alt='Avatar of student']"));
+        avatarIcon.click();
     }
 
 
-
-public String randomStr(){
-     return UUID.randomUUID().toString().replace("-","");
-}
-
-
+    public String randomStr() {
+        return UUID.randomUUID().toString().replace("-", "");
+        }
 
 
 //    public void provideCurrentPassword(String te$t$tudent) {
@@ -58,12 +60,6 @@ public String randomStr(){
 //        newName.sendKeys(randomStr());
 //    }
 
-    public void clickAvatarIcon() {
-        WebElement avatarIcon= driver.findElement(By.xpath("//*[@alt='Avatar of student']"));
-        avatarIcon.click();
-    }
-
-//
 //    public void userProfile(){
 //        WebElement userProfile = driver.findElement(By.xpath("//*[@data-testid=\"view-profile-link\"]"));
 //        userProfile.click();
@@ -74,4 +70,6 @@ public String randomStr(){
 //          WebElement save = driver.findElement(By.xpath("//*[@class=\"btn-submit\"]"));
 //          save.click();
 //      }
+//    }
     }
+

@@ -17,6 +17,9 @@ public class Homework18 extends BaseTest {
         Assert.assertTrue(visualizer.isDisplayed());
     }
 
+    public void provideEmail(String s) {
+    }
+
     private void playASong() throws InterruptedException {
 
         WebElement nextBtn = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));

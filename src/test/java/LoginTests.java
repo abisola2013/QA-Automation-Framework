@@ -13,25 +13,36 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-String url= "https://bbb.testpro.io/";
-    @Test(priority = 0)
-=======
+
+    @Test
+    public void LoginValidEmailPasswordTest () {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmitBtn();
+        Assert.assertTrue(homePage.isUserAvatarDisplayed());
+
+    }
+
+    @Test
+    public void LoginEmptyPasswordTest () {
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("");
+        loginPage.clickSubmitBtn();
+        Assert.assertTrue(loginPage.isPageOpened());
+
+    }
 
     @Test(enabled = false, priority = 0)
-
-    public void LoginEmptyEmailPasswordTest () {
+    public void OpenLoginPageTest () {
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 
-
-    @Test(priority = 1)
-    public void LoginValidEmailValidPasswordTest () throws InterruptedException {
-
-        provideEmail();
-        providePassword();
-        clickSubmitBtn();
-
-    @Test (enabled=true, priority = 1)// (priority = 1, dataProvider = "invalidCredentials", dataProviderClass = BaseTest.class)
+    @Test (enabled=false, priority = 1)// (priority = 1, dataProvider = "invalidCredentials", dataProviderClass = BaseTest.class)
     public void LoginValidEmailValidPasswordTest () {
 
         login();
@@ -50,34 +61,22 @@ String url= "https://bbb.testpro.io/";
         wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(playlistLocator), "PLAYLISTS"));
     }
 
-    // Test with POM
-    @Test
-    public void LoginValidEmailPasswordTest () {
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmitBtn();
-        Assert.assertTrue(homePage.isUserAvatarDisplayed());
-
-    }
 
     // Test with POM for allpage
-    @Test
+    @Test(enabled = false)
     public void Shuffle(){
         AllSongsPage allSongsPage = new AllSongsPage(driver);
         LoginPage loginPage = new LoginPage(driver);
 
         HomePage homePage = loginPage.login();
 
-        homePage.clickOnAllSongs()
-                .shuffle();
+        //homePage.clickOnAllSongs()
+        //        .shuffle();
         Assert.assertTrue(homePage.isSongPlaying());
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void PlayASongFromAllSongs(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homey = new HomePage(driver);
@@ -96,13 +95,8 @@ String url= "https://bbb.testpro.io/";
 
     @Test(enabled = false, priority = 2)
     public void LoginInvalidEmailPasswordTest () throws InterruptedException {
-
-        provideEmail();
-        providePassword()
-        
         provideEmail("dem@class.com");
         providePassword("");
-
         clickSubmitBtn();
 
         // Vd
@@ -122,7 +116,7 @@ String url= "https://bbb.testpro.io/";
 
         WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
         emailField.click();
-        emailField.sendKeys("adenik@yahoo.com");
+        emailField.sendKeys("demo@class.com");
 
         WebElement passwordField = driver.findElement(By.cssSelector("[type='password']"));
         passwordField.click();

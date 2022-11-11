@@ -9,65 +9,70 @@ public class PlaySongHmw18 extends MyBaseTest {
     //we now extend to our own base test named MyBaseTest
 
     @Test
+
     public void playASong() throws InterruptedException {
+            login();
+            clickSubmitBtn();
+            clickAllSongs();
+            allSongPage();
+            String getSongTitle = getSongTitleText();
+            playANewSong();
+        }
+        private void playANewSong () {
+        clickOnASong();
+            clickPlay();
+            String verifySongPlays = getVerifySongPlays();
+            Assert.assertEquals(verifySongPlays, getSongTitleText());
+        }
+        private String getVerifySongPlays () {
+            WebElement verifySong = driver.findElement(By.xpath("//section[@id='songsWrapper']//tr[@class='song-item selected']//td[@class='title']"));
+            return verifySong.getText();
+        }
+        private String getSongTitleText () {
+            WebElement getTitleText = driver.findElement(By.xpath("//section[@id='songsWrapper']//tr[@class='song-item selected']//td[@class='title']"));
+            return getTitleText.getText();
+        }
+        private void allSongPage () {
+            WebElement allSongPage = driver.findElement(By.xpath("//h1[normalize-space()='All Songs']"));
+            Assert.assertTrue(driver.findElement((By) allSongPage).isDisplayed());
+        }
+        private void clickPlay () {
+            WebElement clickPlay = driver.findElement(By.xpath("//*[@title='Play or resume']"));
+            clickPlay.click();
+            Assert.assertTrue(driver.findElement((By) clickPlay).isEnabled());
 
-        login();//now lets to run it
-        clickSubmitBtn();
-        clickAllSongs();
-        allSongPage();
-        String getSongTitle= getSongTitleText();
-        playANewSong();
+            WebElement Visualizer = driver.findElement(By.xpath("//button[@data-testid='toggle-visualizer-btn']//img[@alt='Sound bars']"));
+            Assert.assertTrue(Visualizer.isDisplayed());
+        }
+        private void clickAllSongs () throws InterruptedException {
 
+            WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
+            allSongs.click();
+            Thread.sleep(2000);
+        }
+    private void clickOnASong() {
+        WebElement clickOnASong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
+        clickOnASong.click();
     }
 
+//        private void clickAllSongs () {
+//            // add webdriver wait
+//            WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
+//            allSongs.click();
 
-    private void playANewSong() {
+//        WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
+//        allSongs.click();
+//
+//        WebElement allSongPage = driver.findElement(By.xpath("//h1[normalize-space()='All Songs']"));
+//        Assert.assertTrue(driver.findElement((By) allSongPage).isDisplayed());
+//
+//        WebElement clickOnASong = driver.findElement(By.xpath("//*[@id=\"songsWrapper\"]/div/div/div[1]/table/tr[1]/td[2]"));
+//        clickOnASong.click();
+//
+//        WebElement clickPlay = driver.findElement(By.xpath("//*[@title=\"Play or resume\"]"));
+//        clickPlay.click();
+//        Assert.assertTrue(driver.findElement((By) clickPlay).isEnabled());
 
-//        clickOnASong();
-        clickPlay();
-        String verifySongPlays= getVerifySongPlays();
-         Assert.assertEquals(verifySongPlays,getSongTitleText());
-
-
-    }
-
-    private String getVerifySongPlays() {
-        WebElement verifySong= driver.findElement(By.xpath("//section[@id='songsWrapper']//tr[@class='song-item selected']//td[@class='title']"));
-        return verifySong.getText();
-    }
-
-    private String getSongTitleText() {
-        WebElement getTitleText=driver.findElement(By.xpath("//section[@id='songsWrapper']//tr[@class='song-item selected']//td[@class='title']"));
-        return getTitleText.getText();
-
-    }
-
-    private void allSongPage() {
-        WebElement allSongPage = driver.findElement(By.xpath("//h1[normalize-space()='All Songs']"));
-        Assert.assertTrue(driver.findElement((By) allSongPage).isDisplayed());
-    }
-
-    private void clickPlay() {
-        WebElement clickPlay = driver.findElement(By.xpath("//*[@title='Play or resume']"));
-        clickPlay.click();
-        Assert.assertTrue(driver.findElement((By) clickPlay).isEnabled());
-
-        WebElement Visualizer = driver .findElement(By.xpath("//button[@data-testid='toggle-visualizer-btn']//img[@alt='Sound bars']"));
-        Assert.assertTrue(Visualizer.isDisplayed());
-    }
+        }
 
 
-
-
-
-    private void clickAllSongs() throws InterruptedException {
-        // add webdriver wait
-        WebElement allSongs = driver.findElement(By.xpath("//a[@class='songs active']"));
-        allSongs.click();
-       Thread.sleep(2000);
-
-
-
-//        The visualizer will be the assertion that the music is playing
-    }
-}

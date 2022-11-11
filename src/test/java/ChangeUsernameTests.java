@@ -17,7 +17,7 @@ public class ChangeUsernameTests extends  BaseTest {
         String currentPassword = "te$t$tudent";
 
         //login
-        provideEmail("demo@class.com");
+        provideEmail("");
         providePassword("");
         clickSubmitBtn();
 

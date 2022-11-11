@@ -1,46 +1,14 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<!--<suite name="homeworks.PlaySongHmw18">-->
-<!--    <parameter name="baseURL" value="https://bbb.testpro.io" />-->
+<suite name="TestNG">
 
-<!--    <test name="Example Test" preserve-order="false">-->
-<!--        <classes>-->
-<!--&lt;!&ndash;            <class name="homeworks.BaseTest"/>&ndash;&gt;-->
-<!--&lt;!&ndash;             <class name="homeworks.LoginTests"/>&ndash;&gt;-->
-<!--            <class name="homeworks.PlaySongHmw18">-->
-<!--                <methods>-->
-<!--                    <include name="playASong" />-->
-<!--                </methods>-->
-<!--            </class>-->
+    <test name="LoginTests" preserve-order="false">
+        <classes>
+            <class name="LoginTests"/>
+        </classes>
+    </test>
+</suite>
 
-<!--        </classes>-->
-<!--    </test>-->
-<!--</suite>-->
-
-
-<!--&lt;!&ndash;Notes:&ndash;&gt;-->
-<!--&lt;!&ndash;since our homework files are now in homeworks package, we just need to add the&ndash;&gt;-->
-<!--&lt;!&ndash;homeworks.(homework name) in our test NG, sample: homeworks.PlaySongHmw18&ndash;&gt;-->
-
-<!--&lt;!&ndash;Lets try to check our build.gradle when we encounter no tests found even&ndash;&gt;-->
-<!--&lt;!&ndash;if test ng is configured correctly&ndash;&gt;-->
-
-
-<!--        &lt;!&ndash;                <class name="MyBaseTest"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;&lt;!&ndash;                <class name="LoginTests"/>&ndash;&gt;&ndash;&gt;-->
-<!--        &lt;!&ndash;                <class name="ChangeUserNameProfile"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;                <class name="PlaylistTests">&ndash;&gt;-->
-
-<!--        &lt;!&ndash;                </class>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <class name="LoginTests">&ndash;&gt;-->
-<!--        &lt;!&ndash;                <methods>&ndash;&gt;-->
-<!--        &lt;!&ndash;                    <include name="LoginValidEmailEmptyPasswordTest" />&ndash;&gt;-->
-<!--        &lt;!&ndash;                </methods>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </class>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <class name="MyBaseTest"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <class name="LoginTests"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <class name="Homework17"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <class name="ChangeUserNameProfile"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;                <class name="PlaylistTests"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;            lets remove this duplicate declarations of classes&ndash;&gt;-->
+<!--<class name="RegistrationTests"/>-->
+<!--<class name="ChangeUsernameTests"/>-->
