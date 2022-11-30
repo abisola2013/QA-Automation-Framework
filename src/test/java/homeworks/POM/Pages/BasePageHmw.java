@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePageHmw {
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
     By allSongsMenuItemLocator =By.cssSelector(" li a.songs");
     By avatarLocator = By.cssSelector("img.avatar");
     By soundBarPlayLocator = By.cssSelector("[data-testid = 'sound-bar-play']");
