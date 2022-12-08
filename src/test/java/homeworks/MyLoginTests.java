@@ -17,12 +17,12 @@ import java.time.Duration;
 
 public class MyLoginTests extends MyBaseTest {
 
+    //changes
 String url= "https://bbb.testpro.io/";
 
     @Test( enabled = false, priority = 0)
     public void LoginEmptyEmailPasswordTest () {
         LoginPageHmw loginPageHmw= new LoginPageHmw(getDriver());
-
 
     loginPageHmw.provideEmail("");
     loginPageHmw.providePassword("");
@@ -44,8 +44,6 @@ String url= "https://bbb.testpro.io/";
                 {"",""},
         };
 }
-
-
     @Test (priority = 0)
     public void LoginValidEmailPasswordTest () {
         LoginPageHmw loginPageHmw= new LoginPageHmw(getDriver());

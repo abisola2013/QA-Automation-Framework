@@ -98,7 +98,6 @@ capabilities.setCapability("browserName","chrome");
         public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL="http://192.168.1.196:4444";
-
      switch(browser){
          case "firefox":
              System.setProperty("webdriver.gecko.driver","geckodriver.exe");

@@ -16,9 +16,10 @@
 <!--                </methods>-->
 <!--            </class>-->
                         <class name="homeworks.MyLoginTests">
-<!--                            <methods>-->
-<!--                                <include name="LoginValidEmailPasswordTest"/>-->
-<!--                            </methods>-->
+                            <methods>
+                                <include name="LoginValidEmailPasswordTest"/>
+<!--                                <include name="PlayASongFromAllSongs"/>-->
+                            </methods>
                         </class>
         </classes>
     </test>
